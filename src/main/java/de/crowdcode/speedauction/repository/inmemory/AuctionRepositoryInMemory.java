@@ -2,19 +2,19 @@ package de.crowdcode.speedauction.repository.inmemory;
 
 import de.crowdcode.speedauction.domain.Auction;
 import de.crowdcode.speedauction.repository.AuctionRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
 /**
  * @author Ingo Düppe (Crowdcode)
  */
+@Repository
 public class AuctionRepositoryInMemory implements AuctionRepository {
 
-    private static InMemoryStore<Auction> inMemoryStore;
-
-    public AuctionRepositoryInMemory(InMemoryStore<Auction> inMemoryStore) {
-        this.inMemoryStore = inMemoryStore;
-    }
+    @Autowired
+    private InMemoryStore<Auction> inMemoryStore;
 
     @Override
     public List<Auction> findAll() {

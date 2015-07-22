@@ -19,7 +19,7 @@ import static org.junit.Assert.assertThat;
 public class SpeedAuctionServiceBeanTest {
 
     @Test
-    public void testJavaConfigByName() throws Exception {
+    public void testRegisterAndFind() throws Exception {
         AnnotationConfigApplicationContext ctx = new AnnotationConfigApplicationContext();
         ctx.register(JavaConfig.class);
         ctx.refresh();

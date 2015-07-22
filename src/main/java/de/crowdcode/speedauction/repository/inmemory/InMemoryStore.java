@@ -4,12 +4,15 @@ package de.crowdcode.speedauction.repository.inmemory;
 import de.crowdcode.speedauction.commons.Identifiable;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.stereotype.Component;
 
+import javax.annotation.PostConstruct;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+@Component
 public class InMemoryStore<T extends Identifiable> {
 
     private static final Logger logger = LoggerFactory
@@ -23,6 +26,7 @@ public class InMemoryStore<T extends Identifiable> {
         store = new HashMap<Long, T>();
     }
 
+    @PostConstruct
     public void init() {
         logger.info("init in memory store");
         sequence = System.currentTimeMillis();
