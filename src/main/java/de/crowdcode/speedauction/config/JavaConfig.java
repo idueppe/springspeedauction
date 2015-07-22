@@ -1,6 +1,7 @@
 package de.crowdcode.speedauction.config;
 
 import de.crowdcode.speedauction.domain.Auction;
+import de.crowdcode.speedauction.domain.Product;
 import de.crowdcode.speedauction.repository.AuctionRepository;
 import de.crowdcode.speedauction.repository.inmemory.AuctionRepositoryInMemory;
 import de.crowdcode.speedauction.repository.inmemory.InMemoryStore;
@@ -19,6 +20,13 @@ public class JavaConfig {
 
     private static final Logger log = LoggerFactory.getLogger(JavaConfig.class);
 
+    /**
+     * <bean id="speedAuctionService" class="de.crowdcode.speedauction.service.SpeedAuctionServiceBean">
+     *   <constructor-arg ref="auctionRepository"/> ??? 
+     * </bean>
+     * @param auctionRepository
+     * @return
+     */
     @Bean
     public SpeedAuctionService speedAuctionService(AuctionRepository auctionRepository) {
         log.info("=| Creating new AuctionService Instance");
@@ -27,13 +35,19 @@ public class JavaConfig {
     }
 
     @Bean
-    public AuctionRepository auctionRepository(InMemoryStore<Auction> inMemoryStore) {
+    public AuctionRepository auctionRepository(InMemoryStore<Auction> inMemoryStoreXX) {
         log.info("=| Creating new AuctionRepository Instance");
-        return new AuctionRepositoryInMemory(inMemoryStore);
+        return new AuctionRepositoryInMemory(inMemoryStoreXX);
     }
 
-    @Bean
+    @Bean(initMethod = "init")
     public InMemoryStore<Auction> inMemoryStore() {
+        log.info("=| Creating new InMemoryStore Instance");
+        return new InMemoryStore<>();
+    }
+
+    @Bean(initMethod = "init")
+    public InMemoryStore<Product> inMemoryStoreProduct() {
         log.info("=| Creating new InMemoryStore Instance");
         return new InMemoryStore<>();
     }
