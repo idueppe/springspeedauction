@@ -37,7 +37,7 @@ public class JavaConfigTest {
     }
 
     @Test
-    @Ignore
+//    @Ignore
     public void testJavaConfigRepository() throws Exception {
         AnnotationConfigApplicationContext ctx = new AnnotationConfigApplicationContext();
         ctx.register(JavaConfig.class);

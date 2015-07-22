@@ -1,14 +1,11 @@
 package de.crowdcode.speedauction.service;
 
-import java.time.LocalDateTime;
-import java.util.List;
-import java.util.Optional;
-
-import org.springframework.beans.factory.annotation.Autowired;
-
 import de.crowdcode.speedauction.domain.Auction;
 import de.crowdcode.speedauction.domain.DetailProduct;
 import de.crowdcode.speedauction.repository.AuctionRepository;
+
+import java.time.LocalDateTime;
+import java.util.List;
 
 /**
  * @author Ingo Düppe (Crowdcode)
@@ -17,29 +14,26 @@ import de.crowdcode.speedauction.repository.AuctionRepository;
 // @Component
 public class SpeedAuctionServiceBean implements SpeedAuctionService {
 
-	@Autowired
-	private Optional<AuctionRepository> auctionRepository;
+    private AuctionRepository auctionRepository;
 
-//    public SpeedAuctionServiceBean() {
-//    }
+    public SpeedAuctionServiceBean(AuctionRepository auctionRepository) {
+        this.auctionRepository = auctionRepository;
+    }
 
-//    @Autowired
-//	public SpeedAuctionServiceBean(AuctionRepository auctionRepository) {
-//		this.auctionRepository = Optional.of(auctionRepository);
-//	}
+    @Override
+    public Long registerProduct(DetailProduct detail, LocalDateTime expireAt) {
+        Auction auction = new Auction()
+                .withProduct(detail)
+                .withExpireAt(expireAt)
+                .withOwner("not@implemented.yet");
+        auctionRepository.save(auction);
+        return auction.getId();
+    }
 
-	@Override
-	public Long registerProduct(DetailProduct detail, LocalDateTime expireAt) {
-		return null;
-	}
+    @Override
+    public List<Auction> findAllRunningAuctions() {
+        // FIXME filter expired auctions
+        return auctionRepository.findAll();
+    }
 
-	@Override
-	public List<Auction> findAllRunningAuctions() {
-		return auctionRepository.get().findAll();
-	}
-
-//	@Autowired
-	public void setAuctionRepository(AuctionRepository auctionRepository) {
-		this.auctionRepository = Optional.ofNullable(auctionRepository);
-	}
 }
