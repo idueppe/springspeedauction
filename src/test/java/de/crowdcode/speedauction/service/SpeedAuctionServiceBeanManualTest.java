@@ -16,7 +16,7 @@ import static org.junit.Assert.assertThat;
 /**
  * @author Ingo Düppe (Crowdcode)
  */
-public class SpeedAuctionServiceBeanTest {
+public class SpeedAuctionServiceBeanManualTest {
 
     @Test
     public void testRegisterAndFind() throws Exception {
