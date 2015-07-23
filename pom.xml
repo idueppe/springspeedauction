@@ -40,6 +40,12 @@
             <version>10.10.1.1</version>
         </dependency>
 
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-entitymanager</artifactId>
+            <version>4.3.10.Final</version>
+        </dependency>
+
         <!-- LOGGING -->
         <dependency>
             <groupId>ch.qos.logback</groupId>
