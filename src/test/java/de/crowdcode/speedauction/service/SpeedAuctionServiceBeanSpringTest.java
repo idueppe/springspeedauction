@@ -1,5 +1,7 @@
 package de.crowdcode.speedauction.service;
 
+import de.crowdcode.speedauction.config.AuctionRepositoryInMemoryConfig;
+import de.crowdcode.speedauction.config.AuctionRepositoryJpaConfig;
 import de.crowdcode.speedauction.config.JavaConfig;
 import de.crowdcode.speedauction.domain.Auction;
 import de.crowdcode.speedauction.domain.DetailProduct;
@@ -22,7 +24,7 @@ import static org.junit.Assert.assertThat;
  * @author Ingo Düppe (Crowdcode)
  */
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(classes = {JavaConfig.class})
+@ContextConfiguration(classes = {JavaConfig.class, AuctionRepositoryInMemoryConfig.class})
 public class SpeedAuctionServiceBeanSpringTest {
 
     @Autowired

@@ -33,23 +33,4 @@ public class JavaConfig {
         SpeedAuctionServiceBean serviceBean = new SpeedAuctionServiceBean(auctionRepository);
         return serviceBean;
     }
-
-    @Bean
-    public AuctionRepository auctionRepository(InMemoryStore<Auction> inMemoryStoreXX) {
-        log.info("=| Creating new AuctionRepository Instance");
-        return new AuctionRepositoryInMemory(inMemoryStoreXX);
-    }
-
-    @Bean(initMethod = "init")
-    public InMemoryStore<Auction> inMemoryStore() {
-        log.info("=| Creating new InMemoryStore Instance");
-        return new InMemoryStore<>();
-    }
-
-    @Bean(initMethod = "init")
-    public InMemoryStore<Product> inMemoryStoreProduct() {
-        log.info("=| Creating new InMemoryStore Instance");
-        return new InMemoryStore<>();
-    }
-
 }

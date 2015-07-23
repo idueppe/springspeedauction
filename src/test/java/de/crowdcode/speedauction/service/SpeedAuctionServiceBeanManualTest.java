@@ -1,6 +1,8 @@
 package de.crowdcode.speedauction.service;
 
+import de.crowdcode.speedauction.config.AuctionRepositoryInMemoryConfig;
 import de.crowdcode.speedauction.config.JavaConfig;
+import de.crowdcode.speedauction.config.JpaConfig;
 import de.crowdcode.speedauction.domain.Auction;
 import de.crowdcode.speedauction.domain.DetailProduct;
 import org.junit.Test;
@@ -22,6 +24,7 @@ public class SpeedAuctionServiceBeanManualTest {
     public void testJavaConfigByName() throws Exception {
         AnnotationConfigApplicationContext ctx = new AnnotationConfigApplicationContext();
         ctx.register(JavaConfig.class);
+        ctx.register(AuctionRepositoryInMemoryConfig.class);
         ctx.refresh();
 
         SpeedAuctionService service = ctx.getBean(SpeedAuctionService.class);

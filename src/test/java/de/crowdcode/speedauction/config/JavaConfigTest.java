@@ -20,6 +20,7 @@ public class JavaConfigTest {
     public void testJavaConfigByName() throws Exception {
         AnnotationConfigApplicationContext ctx = new AnnotationConfigApplicationContext();
         ctx.register(JavaConfig.class);
+        ctx.register(AuctionRepositoryInMemoryConfig.class);
         ctx.refresh();
 
         assertThat(ctx.getBean("speedAuctionService"), is(notNullValue()));
@@ -30,6 +31,7 @@ public class JavaConfigTest {
     public void testJavaConfigByType() throws Exception {
         AnnotationConfigApplicationContext ctx = new AnnotationConfigApplicationContext();
         ctx.register(JavaConfig.class);
+        ctx.register(AuctionRepositoryInMemoryConfig.class);
         ctx.refresh();
 
         System.out.println(Arrays.toString(ctx.getBeanDefinitionNames()));
@@ -43,6 +45,7 @@ public class JavaConfigTest {
     public void testJavaConfigRepository() throws Exception {
         AnnotationConfigApplicationContext ctx = new AnnotationConfigApplicationContext();
         ctx.register(JavaConfig.class);
+        ctx.register(AuctionRepositoryInMemoryConfig.class);
         ctx.refresh();
 
         System.out.println(Arrays.toString(ctx.getBeanDefinitionNames()));
