@@ -2,19 +2,24 @@ package de.crowdcode.speedauction.domain;
 
 import de.crowdcode.speedauction.commons.AbstractEntity;
 
+import javax.persistence.Entity;
+import javax.persistence.OneToOne;
 import java.time.LocalDateTime;
 
 /**
  * @author Ingo Düppe (Crowdcode)
  */
+@Entity
 public class Auction extends AbstractEntity{
 
     private String owner;
 
     private LocalDateTime expireAt;
 
+    @OneToOne
     private Product product;
 
+    @OneToOne
     private Bid highestBid;
 
     public String getOwner() {

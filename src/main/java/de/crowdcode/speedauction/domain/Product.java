@@ -2,11 +2,16 @@ package de.crowdcode.speedauction.domain;
 
 import de.crowdcode.speedauction.commons.AbstractEntity;
 
+import javax.persistence.Entity;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
 import java.math.BigDecimal;
 
 /**
  * @author Ingo Düppe (Crowdcode)
  */
+@Entity
+@Inheritance(strategy = InheritanceType.JOINED)
 public class Product extends AbstractEntity {
     private String title;
 

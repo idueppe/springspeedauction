@@ -2,11 +2,13 @@ package de.crowdcode.speedauction.domain;
 
 import de.crowdcode.speedauction.commons.AbstractEntity;
 
+import javax.persistence.Entity;
 import java.math.BigDecimal;
 
 /**
  * @author Ingo Düppe (Crowdcode)
  */
+@Entity
 public class Bid extends AbstractEntity{
 
     private BigDecimal amount;
