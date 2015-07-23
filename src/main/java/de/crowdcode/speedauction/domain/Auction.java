@@ -2,7 +2,10 @@ package de.crowdcode.speedauction.domain;
 
 import de.crowdcode.speedauction.commons.AbstractEntity;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.OneToOne;
 import java.time.LocalDateTime;
 
@@ -10,16 +13,20 @@ import java.time.LocalDateTime;
  * @author Ingo Düppe (Crowdcode)
  */
 @Entity
+@NamedQueries(
+        value = @NamedQuery(name = Auction.FIND_ALL, query = "SELECT a FROM Auction a")
+)
 public class Auction extends AbstractEntity{
 
+    public static final String FIND_ALL = "Auction.findAll";
     private String owner;
 
     private LocalDateTime expireAt;
 
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     private Product product;
 
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     private Bid highestBid;
 
     public String getOwner() {
