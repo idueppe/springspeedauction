@@ -3,6 +3,7 @@ package de.crowdcode.speedauction.service;
 import de.crowdcode.speedauction.domain.Auction;
 import de.crowdcode.speedauction.domain.DetailProduct;
 import de.crowdcode.speedauction.repository.AuctionRepository;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDateTime;
 import java.util.List;
@@ -12,6 +13,7 @@ import java.util.List;
  */
 
 // @Component
+@Transactional
 public class SpeedAuctionServiceBean implements SpeedAuctionService {
 
     private AuctionRepository auctionRepository;

@@ -1,6 +1,5 @@
 package de.crowdcode.speedauction.service;
 
-import de.crowdcode.speedauction.config.AuctionRepositoryInMemoryConfig;
 import de.crowdcode.speedauction.config.AuctionRepositoryJpaConfig;
 import de.crowdcode.speedauction.config.JavaConfig;
 import de.crowdcode.speedauction.domain.Auction;
@@ -9,7 +8,6 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
@@ -24,7 +22,7 @@ import static org.junit.Assert.assertThat;
  * @author Ingo Düppe (Crowdcode)
  */
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(classes = {JavaConfig.class, AuctionRepositoryInMemoryConfig.class})
+@ContextConfiguration(classes = {JavaConfig.class, AuctionRepositoryJpaConfig.class})
 public class SpeedAuctionServiceBeanSpringTest {
 
     @Autowired
