@@ -14,11 +14,18 @@ import java.time.LocalDateTime;
  */
 @Entity
 @NamedQueries(
-        value = @NamedQuery(name = Auction.FIND_ALL, query = "SELECT a FROM Auction a")
+        value = {
+                @NamedQuery(name = Auction.FIND_ALL, query = "SELECT a FROM Auction a"),
+                @NamedQuery(name = Auction.FIND_EXPIRED, query = "SELECT a FROM Auction a WHERE a.expireAt < :now"),
+                @NamedQuery(name = Auction.FIND_RUNNING, query = "SELECT a FROM Auction a WHERE a.expireAt >= :now")
+        }
 )
-public class Auction extends AbstractEntity{
+public class Auction extends AbstractEntity {
 
     public static final String FIND_ALL = "Auction.findAll";
+    public static final String FIND_EXPIRED = "Auction.findExpired";
+    public static final String FIND_RUNNING = "Auction.findRunning";
+
     private String owner;
 
     private LocalDateTime expireAt;
