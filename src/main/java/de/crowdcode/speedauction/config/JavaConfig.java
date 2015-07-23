@@ -8,7 +8,8 @@ import org.springframework.context.annotation.Configuration;
  */
 @Configuration
 @ComponentScan(basePackages = {"de.crowdcode.speedauction.service",
-        "de.crowdcode.speedauction.repository.inmemory"})
+        "de.crowdcode.speedauction.repository.inmemory",
+        "de.crowdcode.speedauction.utils"})
 public class JavaConfig {
 
 //    @Bean(name="speedAuctionService")
