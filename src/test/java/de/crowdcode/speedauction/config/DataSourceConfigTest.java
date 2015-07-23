@@ -3,6 +3,7 @@ package de.crowdcode.speedauction.config;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.core.env.Environment;
 import org.springframework.test.context.ContextConfiguration;
@@ -22,7 +23,7 @@ import static org.hamcrest.core.Is.is;
  */
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(classes = DataSourceConfig.class)
-@PropertySource("classpath:database.properties")
+//@PropertySource("classpath:database.properties")
 public class DataSourceConfigTest {
 
     @Autowired
@@ -30,6 +31,9 @@ public class DataSourceConfigTest {
 
     @Autowired
     private Environment environment;
+
+//    @Value("${jdbcValidationQuery}")
+//    private String query;
 
     @Test
     public void testDataSourceConnection() throws Exception {

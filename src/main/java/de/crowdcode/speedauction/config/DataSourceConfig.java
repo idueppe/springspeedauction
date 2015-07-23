@@ -13,7 +13,7 @@ import javax.sql.DataSource;
  * @author Ingo Düppe (Crowdcode)
  */
 @Configuration("DataSourceConfig")
-@PropertySource(value="classpath:database.properties")
+@PropertySource(value="classpath:/config/${stage:dev}-database.properties")
 public class DataSourceConfig {
 
     @Value("${jdbcUrl}")
