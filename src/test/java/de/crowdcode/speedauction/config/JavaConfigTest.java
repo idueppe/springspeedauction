@@ -23,6 +23,7 @@ public class JavaConfigTest {
         ctx.refresh();
 
         assertThat(ctx.getBean("speedAuctionService"), is(notNullValue()));
+        ctx.close();
     }
 
     @Test
@@ -34,6 +35,7 @@ public class JavaConfigTest {
         System.out.println(Arrays.toString(ctx.getBeanDefinitionNames()));
 
         assertThat(ctx.getBean(SpeedAuctionService.class), is(notNullValue()));
+        ctx.close();
     }
 
     @Test
@@ -48,6 +50,7 @@ public class JavaConfigTest {
         SpeedAuctionService speedAuctionService = ctx.getBean(SpeedAuctionService.class);
         assertThat(speedAuctionService.findAllRunningAuctions(), is(notNullValue()));
 
+        ctx.close();
     }
 
 }
