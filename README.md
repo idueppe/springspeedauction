@@ -1,6 +1,6 @@
 # SpeedAuction - Spring
 
-[![Build Status](https://travis-ci.org/idueppe/springspeedauction.svg?branch=master)](https://travis-ci.org/idueppe/springspeedauction)
+[![Build Status](https://travis-ci.org/idueppe/springspeedauction.svg?branch=datajpa)](https://travis-ci.org/idueppe/springspeedauction)
 
 ## UML-Models
 
